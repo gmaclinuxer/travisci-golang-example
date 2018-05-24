@@ -6,4 +6,6 @@ go:
 script:
  - go test -v ./...
  - ls ./ && ls ../ && pwd
- - make
+ - cd ../ && mv travisci-golang-example ../../golang-example
+ - ls ../../
+ - cd ../../golang-example && make
