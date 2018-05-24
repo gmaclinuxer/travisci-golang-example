@@ -5,4 +5,5 @@ go:
 
 script:
  - go test -v ./...
+ - ls ./ && ls ../ && pwd
  - make
