@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/gmaclinuxer/travisci-golang-example/newmath"
+	"golang-example/newmath"
 )
 
 func main() {
