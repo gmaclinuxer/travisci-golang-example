@@ -5,29 +5,37 @@ import (
 	"fmt"
 )
 
+var (
+	Version     string
+	BuildCommit string
+	BuildTime   string
+	GoVersion   string
+)
 
-//var Usage = func() {
-//	fmt.Fprintf(flag.CommandLine.Output(), "Usage of %s:\n", os.Args[0])
-//	flag.PrintDefaults()
-//}
-
+// printVersion print version info from makefile
+func printVersion() {
+	fmt.Printf(`Version:      %s
+Go version:   %s
+Git commit:   %s
+Built:        %s
+`, Version, GoVersion, BuildCommit, BuildTime)
+}
 
 func main() {
 
-	wordPtr := flag.String("word", "foo", "a string")
-	numbPtr := flag.Int("numb", 42, "an int")
-	boolPtr := flag.Bool("fork", false, "a bool")
-
-	var svar string
-	flag.StringVar(&svar, "svar", "bar", "a string var")
+	inFile := flag.String("i", "in.dat", "input file")
+	outFile := flag.String("o", "out.dat", "output file")
+	algName := flag.String("a", "qsort", "qsort/bsort")
+	version := flag.Bool("v", false, "print version info")
 
 	flag.Parse()
 
-	fmt.Println("word: ", *wordPtr)
-	fmt.Println("numb: ", *numbPtr)
-	fmt.Println("fork: ", *boolPtr)
-	fmt.Println("svar: ", svar)
+	if *version {
+		printVersion()
+		return
+	}
 
-	fmt.Println("tail:", flag.Args())
+	fmt.Printf("inFile: %s, outFile: %s, algName: %s\n",
+		*inFile, *outFile, *algName)
 
 }

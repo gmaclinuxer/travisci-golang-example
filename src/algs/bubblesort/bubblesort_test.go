@@ -1,12 +1,12 @@
 package bubblesort
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestBubbleSort(t *testing.T) {
-	intArr := []int{4,5,2,3,1,0}
+	intArr := []int{4, 5, 2, 3, 1, 0}
 	fmt.Println("before sort: ", intArr)
 	BubbleSort(intArr)
 	fmt.Println("after sort: ", intArr)

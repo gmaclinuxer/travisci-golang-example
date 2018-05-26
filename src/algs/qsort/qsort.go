@@ -3,7 +3,7 @@ package qsort
 func QuickSort(intArr []int, left, right int) {
 	if left < right {
 
-		key := intArr[(left+right/2)]
+		key := intArr[(left + right/2)]
 		i, j := left, right
 
 		for {
@@ -28,7 +28,7 @@ func QuickSort(intArr []int, left, right int) {
 
 		}
 
-		QuickSort(intArr, left , i-1)
+		QuickSort(intArr, left, i-1)
 		QuickSort(intArr, j+1, right)
 	}
 }
