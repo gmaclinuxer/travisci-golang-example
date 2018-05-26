@@ -1,5 +1,5 @@
 // This package is a Travis-CI example package.
-package newmath
+package bubblesort
 
 // Sqrt returns an approximation to the square root of x.
 func Sqrt(x float64) float64 {

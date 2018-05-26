@@ -1,4 +1,4 @@
-package newmath
+package bubblesort
 
 import "testing"
 
