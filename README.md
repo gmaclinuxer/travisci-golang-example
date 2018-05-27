@@ -3,27 +3,24 @@
 
 This is "go get"-able project and Travis-CI buildable.
 
+## Makefile
 
-## Local Build and Test
+We need makefile to manage our project
 
-You can use go get command: 
-
-    go get github.com/atotto/travisci-golang-example 
-
-Testing:
-
-    go test github.com/atotto/travisci-golang-example/...
-
-
-## Travis-CI
-
-You can see a build status: https://travis-ci.org/atotto/travisci-golang-example
+1. make all
+2. make test
+3. make build
+4. make clean
+5. make fmt
+6. make addtest
+7. make check
 
 
+## .travis.yml
 
-## References
+We need travis to check ci status
 
-Building a Go Project: http://about.travis-ci.org/docs/user/languages/go/
 
-How to Write Go Code: http://golang.org/doc/code.html
+## Just A Demo For You
 
+This is just a basic basic basic demo for golanger, as a beginner, taste some new things

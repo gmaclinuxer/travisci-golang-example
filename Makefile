@@ -25,8 +25,6 @@ GO_LIB_FILES=$(shell find . -type f -name "*.go" -not -path "./src/sorter/*")
 
 all: test build
 
-.PHONY: clean
-
 $(TARGET): $(TARGET_SRC)
 	$(GOBUILD) $(LDFLAGS) -o $(TARGET) $(TARGET_SRC)
 	cp $(TARGET) ./bin
@@ -53,3 +51,5 @@ check:
 	@test -z $(shell gofmt -l $(GO_FILES) | tee /dev/stderr) || echo "[WARN] Fix formatting issues with 'make fmt'"
 	@for d in $$(go list ./... | grep -v /vendor/); do golint $${d}; done
 	@go tool vet ${GO_FILES}
+
+.PHONY: clean
