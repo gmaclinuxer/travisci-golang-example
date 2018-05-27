@@ -46,6 +46,8 @@ addtest:
 clean:
 	$(GOCLEAN)
 	rm -f $(TARGET) bin/$(TARGET)
+	rm -rf pkg/*
+	rm -rf *.dat
 
 check:
 	@test -z $(shell gofmt -l $(GO_FILES) | tee /dev/stderr) || echo "[WARN] Fix formatting issues with 'make fmt'"
