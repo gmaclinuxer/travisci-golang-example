@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestQuickSort(t *testing.T) {
+func Test_Qsort(t *testing.T) {
 
 	// table driven tests
 	tests := []struct {
@@ -20,7 +20,8 @@ func TestQuickSort(t *testing.T) {
 		wantArr := tc.want
 
 		fmt.Println("before sort: ", intArr)
-		QuickSort(intArr, 0, len(intArr)-1)
+		Qsort(intArr)
+		//QuickSort(intArr, 0, len(intArr)-1)
 		fmt.Println("after sort: ", intArr)
 		for index, v := range intArr {
 			if wantArr[index] != v {
