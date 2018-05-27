@@ -7,8 +7,8 @@ import (
 	"bufio"
 	"io"
 	"strconv"
-	"github.com/gmaclinuxer/travis-golang-example/src/algs/qsort"
-	"github.com/gmaclinuxer/travis-golang-example/src/algs/bubblesort"
+	"github.com/gmaclinuxer/travisci-golang-example/src/algs/qsort"
+	"github.com/gmaclinuxer/travisci-golang-example/src/algs/bubblesort"
 	"time"
 )
 
