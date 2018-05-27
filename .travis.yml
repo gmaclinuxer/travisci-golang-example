@@ -4,9 +4,4 @@ go:
  - "1.10.x"
 
 script:
- - ls ./ && ls ../ && pwd
- - cd ../ && mv travisci-golang-example ../../golang-example
- - ls ../../
- - cd ../../golang-example
- - go test -v ./...
  - make
