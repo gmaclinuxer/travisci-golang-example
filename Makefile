@@ -20,7 +20,8 @@ LDFLAGS = -ldflags "-X main.Version=$(VERSION) -X 'main.BuildCommit=$(BUILD_COMM
 TARGET=main
 TARGET_DIR=./src/sorter
 TARGET_SRC=$(shell find $(TARGET_DIR) -type f -name "*.go" -not -path "./pkg/*")
-GOFILES=$(shell find . -type f -name "*.go" -not -path "./pkg/*")
+GO_FILES=$(shell find . -type f -name "*.go" -not -path "./pkg/*")
+GO_LIB_FILES=$(shell find . -type f -name "*.go" -not -path "./src/sorter/*")
 
 all: test build
 
@@ -37,13 +38,16 @@ test:
 	$(GOTEST) -v -cover=true ./...
 
 fmt:
-	$(GOFMT) -l -w $(GOFILES)
+	$(GOFMT) -l -w $(GO_FILES)
+
+addtest:
+	gotests -all -excl main -w $(GO_LIB_FILES)
 
 clean:
 	$(GOCLEAN)
 	rm -f $(TARGET) bin/$(TARGET)
 
 check:
-	@test -z $(shell gofmt -l $(GOFILES) | tee /dev/stderr) || echo "[WARN] Fix formatting issues with 'make fmt'"
+	@test -z $(shell gofmt -l $(GO_FILES) | tee /dev/stderr) || echo "[WARN] Fix formatting issues with 'make fmt'"
 	@for d in $$(go list ./... | grep -v /vendor/); do golint $${d}; done
-	@go tool vet ${GOFILES}
+	@go tool vet ${GO_FILES}

@@ -6,8 +6,8 @@ Generated TestBubbleSort
 */
 
 import (
-	"testing"
 	"reflect"
+	"testing"
 )
 
 func TestBubbleSort(t *testing.T) {
