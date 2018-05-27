@@ -1,19 +1,33 @@
 package bubblesort
 
+/*
+bubblesort git:(master) ✗ gotests -all -w ./bubblesort.go
+Generated TestBubbleSort
+*/
+
 import (
-	"fmt"
 	"testing"
+	"reflect"
 )
 
 func TestBubbleSort(t *testing.T) {
-	intArr := []int{4, 5, 2, 3, 1, 0}
-	fmt.Println("before sort: ", intArr)
-	BubbleSort(intArr)
-	fmt.Println("after sort: ", intArr)
-	for index, v := range intArr {
-		if index != v {
-			t.Errorf("bubblesort failed: intaArr[%d] != %d", index, v)
-			break
-		}
+	type args struct {
+		intArr []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		// TODO: Add test cases.
+		{"basic", args{[]int{1, 0, 3, 4, 2}}, []int{0, 1, 2, 3, 4}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			BubbleSort(tt.args.intArr)
+			if !reflect.DeepEqual(tt.want, tt.args.intArr) {
+				t.Error("bubble sort failed")
+			}
+		})
 	}
 }

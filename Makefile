@@ -34,7 +34,7 @@ build: $(TARGET)
 	@true
 
 test:
-	$(GOTEST) -v ./...
+	$(GOTEST) -v -cover=true ./...
 
 fmt:
 	$(GOFMT) -l -w $(GOFILES)
